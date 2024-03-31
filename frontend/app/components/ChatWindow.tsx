@@ -101,7 +101,7 @@ export function ChatWindow(props: { conversationId: string }) {
       const sourceStepName = "FindDocs";
       let streamedResponse: Record<string, any> = {};
       const remoteChain = new RemoteRunnable({
-        url: 'https://langchain-beta-swart.vercel.app/api/chat',
+        url: 'https://chat-langchainjs-frontend-indol.vercel.app//api/chat',
         options: {
           timeout: 60000,
         },

@@ -1,2 +1,2 @@
-const apiBasePath = `https://langchain-beta-swart.vercel.app`
+const apiBasePath = `https://chat-langchainjs-frontend-indol.vercel.app/`
 export const apiBaseUrl = `${apiBasePath}/api`;
