@@ -39,15 +39,6 @@ async function loadAPIDocs(): Promise<Array<DocumentInterface>> {
   return loader.load();
 }
 
-/**
- * Load all of the LangChain docs via the sitemap.
- * @returns {Promise<Array<DocumentInterface>>}
- */
-async function loadLangChainDocs(): Promise<Array<DocumentInterface>> {
-  const loader = new SitemapLoader("https://js.langchain.com/");
-  return loader.load();
-}
-
 function getEmbeddingsModel(): Embeddings {
   return new OpenAIEmbeddings();
 }
@@ -67,10 +58,8 @@ async function ingestDocs() {
   console.debug(`Loaded ${smithDocs.length} docs from LangSmith`);
   const apiDocs = await loadAPIDocs();
   console.debug(`Loaded ${apiDocs.length} docs from API`);
-  const langchainDocs = await loadLangChainDocs();
-  console.debug(`Loaded ${langchainDocs.length} docs from documentation`);
 
-  if (!smithDocs.length || !apiDocs.length || !langchainDocs.length) {
+  if (!smithDocs.length || !apiDocs.length) {
     process.exit(1);
   }
 
@@ -81,7 +70,6 @@ async function ingestDocs() {
   const docsTransformed = await textSplitter.splitDocuments([
     ...smithDocs,
     ...apiDocs,
-    ...langchainDocs,
   ]);
 
   // We try to return 'source' and 'title' metadata when querying vector store and
