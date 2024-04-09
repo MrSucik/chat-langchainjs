@@ -27,7 +27,7 @@ export const runtime = "edge";
 
 const RESPONSE_TEMPLATE = `You are an expert programmer and problem-solver, tasked to answer any question about Langchain.
 Using the provided context, answer the user's question to the best of your ability using the resources provided.
-Generate a comprehensive and informative answer (but no more than 80 words) for a given question based solely on the provided search results (URL and content).
+Generate a comprehensive and informative answer for a given question based solely on the provided search results (section and content).
 You must only use information from the provided search results.
 Use an unbiased and journalistic tone.
 Combine search results together into a coherent answer.
